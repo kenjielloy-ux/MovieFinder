@@ -106,7 +106,7 @@ function showMessage(id, message) {
     if (element) element.textContent = message;
 }
 
-/* Load previously saved movies */
+
 
 function loadSavedMovies() {
     const oldFavorites = loadSaved("favorites");
@@ -143,7 +143,7 @@ function loadSavedMovies() {
 
 loadSavedMovies();
 
-/* Navigation */
+
 
 function showPage(page, remember = true) {
     if (!$(page)) return;
@@ -195,7 +195,7 @@ $("openSearch").addEventListener("click", () => {
     $("exploreSearchInput").focus();
 });
 
-/* Featured movies */
+
 
 async function loadFeaturedMovies() {
     try {
@@ -320,7 +320,7 @@ $("surpriseButton").addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/* Create movie cards */
+
 
 function movieCard(movie) {
     const id = Number(movie.id);
@@ -449,7 +449,7 @@ function renderMovies(movies, containerId = "movieContainer") {
         : `<p class="empty-state">No movies to display yet.</p>`;
 }
 
-/* Search movies */
+
 
 async function searchMovies(query, type = "multi") {
     const cleaned = query.trim();
@@ -527,7 +527,7 @@ $("exploreSearchForm").addEventListener("submit", event => {
     );
 });
 
-/* Search actors and directors */
+
 
 async function searchPeople(query) {
     const cleaned = query.trim();
@@ -597,7 +597,7 @@ $("peopleSearchForm").addEventListener("submit", event => {
     searchPeople($("peopleSearchInput").value);
 });
 
-/* Movie details */
+
 
 async function openMovie(id) {
     const movie = state.movieCache.get(Number(id));
@@ -782,7 +782,7 @@ async function openMovie(id) {
     }
 }
 
-/* Actor and director profiles */
+
 
 async function openPerson(id) {
     $("movieModal").classList.add("show");
@@ -871,7 +871,7 @@ async function openPerson(id) {
     }
 }
 
-/* Close movie details */
+
 
 function closeModal() {
     $("movieModal").classList.remove("show");
@@ -916,7 +916,7 @@ document.addEventListener("keydown", event => {
     }
 });
 
-/* Favorites and Watch Later */
+
 
 function toggleSaved(type, id) {
     const numberId = Number(id);
@@ -970,7 +970,6 @@ function refreshVisibleMovies() {
     }
 }
 
-/* Collection page */
 
 function renderCollection() {
     const container = $("collectionContainer");
@@ -1009,7 +1008,7 @@ $("showWatchLater").addEventListener("click", () => {
     renderCollection();
 });
 
-/* Recently viewed */
+
 
 function renderHistory() {
     const container = $("recentContainer");
@@ -1029,7 +1028,7 @@ function renderHomeHistory() {
         : `<p class="empty-state">Your viewed movies will appear here.</p>`;
 }
 
-/* Reliable click handling for all movie cards and modal buttons */
+
 
 document.addEventListener("click", event => {
     const toggleButton = event.target.closest("[data-toggle]");
@@ -1064,7 +1063,7 @@ document.addEventListener("click", event => {
     }
 });
 
-/* Search filters */
+
 
 document.querySelectorAll("[data-filter]").forEach(button => {
     button.addEventListener("click", () => {
@@ -1126,7 +1125,7 @@ $("ratingFilter").addEventListener("change", () => {
     renderMovies(state.currentMovies);
 });
 
-/* Load genres */
+
 
 async function loadGenres() {
     try {
@@ -1170,7 +1169,7 @@ $("scrollTopButton").addEventListener("click", () => {
     });
 });
 
-/* Start MovieFinder */
+
 
 async function init() {
     await Promise.all([
